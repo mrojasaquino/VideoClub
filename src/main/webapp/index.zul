@@ -1,0 +1,5 @@
+<?page automaticTimeout="true" id="ihsa"?>
+<?link rel="stylesheet" type="text/css" href="videoihsa.css"?>
+<zk>
+	<window use="mx.ihsa.videoclub.MenuPrincipal"/>
+</zk>
