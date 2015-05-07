@@ -8,7 +8,6 @@ package mx.ihsa.videoclub;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.event.Events;
-import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.Borderlayout;
 import org.zkoss.zul.Center;
 import org.zkoss.zul.East;
@@ -110,13 +109,24 @@ public class MenuPrincipal extends Window {
             }
         });
         
-        button = new Toolbarbutton("Editar Categoria");
+        
+        button = new Toolbarbutton("Editar Categoría");
         button.setClass("toolbar-button");
         toolBar.appendChild(button);
         button.addEventListener(Events.ON_CLICK, new EventListener<Event>() {
             @Override
             public void onEvent(Event event) throws Exception {
                 openWindow(new Categories());
+            }
+        });
+        
+        button = new Toolbarbutton("Editar Película");
+        button.setClass("toolbar-button");
+        toolBar.appendChild(button);
+        button.addEventListener(Events.ON_CLICK, new EventListener<Event>() {
+            @Override
+            public void onEvent(Event event) throws Exception {
+                openWindow(new Films());
             }
         });
         

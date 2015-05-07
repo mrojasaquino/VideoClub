@@ -5,14 +5,16 @@
  */
 package mx.ihsa.videoclub.data;
 
-import com.sun.istack.internal.logging.Logger;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import mx.ihsa.videoclub.model.Tables;
 import mx.ihsa.videoclub.model.tables.pojos.Category;
+
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
@@ -23,7 +25,7 @@ import org.jooq.impl.DSL;
  */
 public class CategoryDao {
     private static final Datasource data = Datasource.INSTANCE;
-    private static final Logger LOGGER = Logger.getLogger(FilmDao.class);
+    private static final Logger LOGGER = Logger.getLogger(CategoryDao.class.getName());
     
     public static List<Category> getAll() {
         
