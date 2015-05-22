@@ -12,6 +12,7 @@ import mx.ihsa.videoclub.element.NavToolBar;
 import mx.ihsa.videoclub.element.ToolbarListener;
 
 import org.apache.commons.lang3.StringUtils;
+import org.jooq.Record;
 import org.zkoss.util.resource.Labels;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zul.Cell;
@@ -56,6 +57,8 @@ public class DataPanel extends Panel implements ToolbarListener {
     private EventListenerList eventListenerList;
 
     private final static Logger LOGGER = Logger.getLogger(DataPanel.class.getName());
+    
+    private Record currentRecord;
     
     public DataPanel(String tableName) {
         super();
@@ -259,6 +262,8 @@ public class DataPanel extends Panel implements ToolbarListener {
 
         recordId = (Integer) dataModel.getValueAt(currentRow, 0);
 
+        currentRecord = dataModel.getValueAt(currentRow);
+        
         DataEvent dataEvent = new DataEvent(this);
         dataEvent.setCurrentRow(currentRow);
         dataEvent.setTableName(tableName);
@@ -288,6 +293,12 @@ public class DataPanel extends Panel implements ToolbarListener {
         }
     }
 
+    
+    public Record getCurrentRecord() {
+    	return currentRecord;
+    }
+    
+    
     /**
      * Agregar un subscriptor de eventos
      *

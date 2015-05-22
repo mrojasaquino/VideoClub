@@ -39,7 +39,12 @@ import org.zkoss.zul.Window;
  */
 public class VentanaFilm extends Window implements EventListener<Event> {
     
-    private Borderlayout mainLayout;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private Borderlayout mainLayout;
     private North northPnl;
     private Center centerPnl;
     private South southPnl;

@@ -92,6 +92,16 @@ public class DataModel extends AbstractTableModel {
         return retVal;
     }
     
+    public Record getValueAt(int rowIndex) {
+    	Record retVal = null;
+    	
+    	if(dataRows != null) {
+    		retVal = dataRows.get(rowIndex);
+    	}
+    	
+    	return retVal;
+    }
+    
     public String[] getColumnNames() {
         return columnNames;
     }

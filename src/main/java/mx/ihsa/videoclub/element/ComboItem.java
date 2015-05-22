@@ -8,7 +8,12 @@ import org.zkoss.zul.Comboitem;
  */
 public class ComboItem extends Comboitem {
     
-    public ComboItem(String label, Object value) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public ComboItem(String label, Object value) {
         super(label);
         setValue(value);
     }
