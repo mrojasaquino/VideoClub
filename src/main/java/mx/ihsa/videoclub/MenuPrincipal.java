@@ -1,12 +1,21 @@
 package mx.ihsa.videoclub;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import mx.ihsa.videoclub.data.FilmDao;
+import mx.ihsa.videoclub.util.LabelValueBean;
+
+import org.matica.zkdata.ChartAxis;
+import org.matica.zkdata.ChartData;
+import org.matica.zkdata.MaPoint;
+import org.matica.zkflot.MaChart;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zul.Borderlayout;
 import org.zkoss.zul.Center;
 import org.zkoss.zul.East;
-import org.zkoss.zul.Image;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.North;
 import org.zkoss.zul.South;
@@ -22,13 +31,20 @@ import org.zkoss.zul.Window;
  */
 public class MenuPrincipal extends Window {
     
-    private Borderlayout mainLayout;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
+	private Borderlayout mainLayout;
     private North cabecera;
     private South pie;
     private Center cuerpo;
     private East der;
     private West izq;
     
+    private MainArea mainArea;
     
     public MenuPrincipal() {
         init();
@@ -44,7 +60,7 @@ public class MenuPrincipal extends Window {
         cabecera.setClass("cabecera");
         cabecera.setHeight("40px");
         
-        Label titulo = new Label("VideIHSA, Su mejor opción en diversión.");
+        Label titulo = new Label("VideoIHSA, Su mejor opción en diversión.");
         cabecera.appendChild(titulo);
         buildCuerpo();
         
@@ -66,16 +82,9 @@ public class MenuPrincipal extends Window {
     private void buildCuerpo() {
         cuerpo = new Center();
         
-        Vbox contenedor = new Vbox();
-        contenedor.setAlign("center");
-        contenedor.setPack("center");
-        contenedor.setWidth("100%");
-        contenedor.setHeight("100%");
-
-        Image logo = new Image("http://howtofilmschool.com/wp-content/uploads/2012/10/25Movies.jpg");
-        contenedor.appendChild(logo);
+        mainArea = new MainArea();
         
-        cuerpo.appendChild(contenedor);
+        cuerpo.appendChild(mainArea);
     }
     
     private void buildIzq() {
